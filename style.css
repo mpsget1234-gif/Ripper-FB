@@ -1,0 +1,132 @@
+body {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(197, 183, 158);
+}   
+
+
+section {
+    max-width: 1200px;
+    padding: 60px 20px;
+    margin: 20px auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+/*----------------------------------HERO---------------------------------------------*/
+#hero {
+    background: linear-gradient(145deg, rgb(82, 140, 206), cyan);
+    border-radius: 50px;
+
+}
+
+.hero-content {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+
+.hero-image {
+    margin: 60px;
+}
+
+#hero .hero-text h1{
+    font-size: 60px;
+    margin-bottom: 5px;
+    margin: 100px;
+}
+
+.hero-text p {
+    font-size: 25px;
+    margin: 50px;
+}
+
+.hero-text {
+    padding-bottom: 50px;
+}
+/* ---------------------------------------------------------------------------------- */
+/* ----------------------------------------BUTTONS------------------------------------------ */
+button {
+    background-color: rgb(104, 103, 103);
+    padding:10px 20px ;
+    color: aliceblue;
+    font-family: inherit;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor:pointer;
+}
+button:hover{
+    background-color: rgb(58, 57, 57) ;
+}
+/* ----------------------------------------------------------------------------------------- */
+/* ---------------------------------------DETAILS---------------------------------------------- */
+#details {
+    padding: 40px 20px;
+}
+
+#details h2{
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+}
+
+#details p{
+    text-align: justify;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+/* -------------------------------------CARDS---------------------------------------------------- */
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    background-color: aqua;
+    width: 350px;
+    border-radius: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+    box-shadow: 0px 5px 4px rgb(0,0,0,0.3);
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
+}
+
+#cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+.card p {
+    padding: 0 10px;
+}
+/* --------------------------------------------------------------------------------------------- */
+/* -----------------------------------------FORM------------------------------------------------ */
+form{
+    display: flex;   
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+input {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.delivery-options{
+    display: flex;
+    justify-content: center;
+}
+    
+/* -------------------------------------------------------------------------------------------- */

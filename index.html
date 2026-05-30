@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Ripper FB</title>
+</head>
+
+<body>
+    <!-----------------------------------------HERO---------------------------------------------->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Fingerboard Quarter Pipe</h1>
+                <p>Малка рампа. Голямо забавление – навсякъде, по всяко време.</p>
+                <button type="button"
+                    onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' })">Поръчай
+                    сега</button>
+            </div>
+            <div class="hero-image">
+                <img src="images/IMG_3-removebg-preview.png">
+            </div>
+        </div>
+    </section>
+    <!------------------------------------------------------------------------------------------->
+    <!-----------------------------------------DETAILS---------------------------------------------->
+    <section id="details">
+        <h2>Описание</h2>
+        <p>
+            Fingerboard Quarter Pipe е компактна рампа, създадена за феновете на fingerboard-а, които искат да тренират
+            трикове или просто да се забавляват, когато имат свободно време. Подходяща е както за начинаещи, така и за
+            по-напреднали, които искат да подобрят контрола и креативността си.
+        </p>
+        <p>
+            Дизайнът е внимателно обмислен, рампата е достатъчно малка, за да я носиш навсякъде със себе си. Освен това
+            включва място за съхранение на fingerboard и инструменти, което я прави практично решение за всеки, който
+            обича това хоби.
+        </p>
+        <p>
+            Независимо дали си вкъщи, в училище или навън, тази рампа ти дава бърз начин да превърнеш скучния момент в
+            нещо интересно и активно.
+        </p>
+    </section>
+    <!------------------------------------------------------------------------------------------->
+    <!-----------------------------------------CARDS---------------------------------------------->
+    <section id="cards-container">
+        <div class="card">
+            <img src="images/IMG_3.jpeg" alt="Интересен дизайн">
+            <h3>Интересна и функционална форма</h3>
+            <p>Quarter pipe дизайнът позволява разнообразни трикове и прави всяка сесия по-забавна и динамична.</p>
+        </div>
+        <div class="card">
+            <img src="images/IMG_2.jpeg" alt="Интересен дизайн">
+            <h3>Компактен и преносим дизайн</h3>
+            <p>Лесно се побира в раница и можеш да го използваш навсякъде – без нужда от специално място.</p>
+        </div>
+        <div class="card">
+            <img src="images/IMG_4.jpeg" alt="Интересен дизайн">
+            <h3>Вградено съхранение</h3>
+            <p>Има място за fingerboard и инструменти, така че всичко ти е на едно място и винаги под ръка.</p>
+        </div>
+    </section>
+    <!-------------------------------------------------------------------------------------------->
+    <!-----------------------------------------ORDER---------------------------------------------->
+    <section id="order">
+        <h2>Поръчка</h2>
+        <p>Поръчай своя Fingerboard Quarter Pipe и превърни всяка свободна минута в време за забавление.
+            Бързо, удобно и готово за използване веднага след като го получиш.
+        </p>
+        <form action="https://formspree.io/f/xrejyvlv" method="POST">
+            <input type="text" name="Customer's name" placeholder="Вашето име" required>
+            <input type="tel" name="Phone number" placeholder="Номер за връзка" required>
+            <input type="email" name="E-mail" placeholder="Имейл" required>
+
+            
+            <div class="form-group">
+                <label for="product-color">Избери цвят на продукта:</label>
+                <select id="product-color" name="color" required>
+                    <option value="" disabled selected>-- Моля, избери цвят --</option>
+                    <option value="blue">Синьо</option>
+                    <option value="grey">Сиво</option>
+                    <option value="turquoise">Тюркоаз (Синьо-зелено)</option>
+                    <option value="black">Черно</option>
+                </select>
+            </div>
+
+
+            <input type="number" id="quantity" name="Quantity" value="1" min="1" required oninput="calculateTotal()">
+
+            <p>Обща цена: <strong><span id="totalPrice">12</span>€</strong></p>
+
+            <input type="hidden" name="Total price" id="totalPriceInput" value="12€">
+            
+            <div class="delivery-options">
+                <label>
+                    <input type="radio" name="delivery" value="adress" required onclick="showDEliveryField('adress')">
+                    До адрес
+                </label>
+                <label>
+                    <input type="radio" name="delivery" value="office" required onclick="showDEliveryField('office')">
+                    До офис
+                </label>
+            </div>
+            <input id="adressField" type="text" name="Adress" placeholder="Адрес за доставка" required
+                style="display:none;">
+            <input id="officeField" type="text" name="Office" placeholder="Офис за доставка" required
+                style="display:none;" onclick="showDEliveryField('office')">
+
+
+
+            <button type="submit">Изпрати поръчка</button>
+
+        </form>
+        
+
+    </section>
+    <!------------------------------------------------------------------------------------------->
+
+    <script>
+        function showDEliveryField(type) {
+            const adressField = document.getElementById("adressField");
+            const officeField = document.getElementById("officeField");
+            if (type === "adress") {
+                adressField.style.display = "block";
+                officeField.style.display = "none";
+
+                adressField.required = true;
+                officeField.required = false;
+            } else {
+                adressField.style.display = "none";
+                officeField.style.display = "block";
+
+                adressField.required = false;
+                officeField.required = true;
+
+            }
+        }
+
+        const productPrice = 12;
+
+        function calculateTotal() {
+
+            const quantity = document.getElementById("quantity").value;
+
+            const total = quantity * productPrice;
+
+            document.getElementById("totalPrice").textContent = total;
+
+            document.getElementById("totalPriceInput").value = total + "€";
+        }
+
+        function showDEliveryField(type) {
+
+            const adressField = document.getElementById("adressField");
+            const officeField = document.getElementById("officeField");
+
+            if (type === "adress") {
+
+                adressField.style.display = "block";
+                officeField.style.display = "none";
+
+                adressField.required = true;
+                officeField.required = false;
+
+            } else {
+
+                adressField.style.display = "none";
+                officeField.style.display = "block";
+
+                adressField.required = false;
+                officeField.required = true;
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
